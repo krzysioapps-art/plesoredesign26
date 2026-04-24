@@ -1,0 +1,34 @@
+.container {
+  width: min(var(--container-width), 100%);
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+.section {
+  padding-block: var(--section-space);
+}
+
+.site-shell {
+  min-height: 100vh;
+  position: relative;
+  isolation: isolate;
+}
+
+.site-page {
+  min-height: 100vh;
+  position: relative;
+}
+
+.site-main {
+  padding-top: 84px;
+}
+
+.site-footer {
+  margin-top: 4rem;
+  padding: 2rem 0;
+}
+
+.site-main {
+  flex: 1;
+  padding-top: 84px;
+}

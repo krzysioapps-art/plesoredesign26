@@ -1,0 +1,38 @@
+:root {
+  /* BRAND */
+  --accent: #27a8c7;
+  --accent-hover: #1f96b3;
+
+  /* TEXT */
+  --text: #111111;
+  --muted: #666666;
+  --text-light: #888888;
+
+  /* BACKGROUNDS */
+  --bg: #ffffff;
+  --bg-soft: #f8fcfd;
+  --bg-accent-soft: #eef9fc;
+
+  /* BORDERS */
+  --border: #e8e8e8;
+  --border-soft: #eef4f5;
+
+  /* STATES */
+  --success: #00b67a;
+
+  /* LAYOUT */
+  --container-width: 1280px;
+
+  /* RADIUS */
+  --radius-lg: 18px;
+  --radius-xl: 28px;
+
+  /* SPACING */
+  --section-space: 4rem;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-space: 2.5rem;
+  }
+}
