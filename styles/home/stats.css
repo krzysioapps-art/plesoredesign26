@@ -1,0 +1,88 @@
+/* =========================
+   STATS
+========================= */
+
+.stats {
+  background: var(--bg);
+}
+
+/* =========================
+   GRID
+========================= */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.stat-card {
+  padding: clamp(1.25rem, 3vw, 2rem);
+
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-xl);
+  background: var(--bg-soft);
+}
+
+/* =========================
+   NUMBER
+========================= */
+
+.stat-number {
+  margin-bottom: 0.75rem;
+
+  color: var(--accent);
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: var(--ls-tight);
+}
+
+/* =========================
+   COPY
+========================= */
+
+.stat-card p {
+  color: var(--muted);
+  font-size: var(--fs-md);
+  line-height: 1.65;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1100px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .stat-card {
+    padding: 1.25rem;
+    border-radius: var(--radius-lg);
+  }
+
+  .stat-number {
+    margin-bottom: 0.6rem;
+    font-size: clamp(2rem, 10vw, 2.6rem);
+  }
+
+  .stat-card p {
+    font-size: var(--fs-sm);
+  }
+}

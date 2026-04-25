@@ -47,12 +47,15 @@ export default function NewsSection({
   const visibleItems = limit ? news.slice(0, limit) : news;
 
   return (
-    <section className="news section">
+    <section
+      className="news section"
+      aria-labelledby="news-title"
+    >
       <div className="container">
         <div className="section-head">
           <p className="section-label">Baza wiedzy</p>
 
-          <h2 className="section-title">
+          <h2 id="news-title" className="section-title">
             Artykuły wspierające Twoje zdrowie psychiczne
           </h2>
 
@@ -63,19 +66,31 @@ export default function NewsSection({
         </div>
 
         <div className="news-grid">
-          {visibleItems.map((item, index) => (
-            <article key={index} className="news-card">
+          {visibleItems.map((item) => (
+            <article key={item.title} className="news-card">
               <div className="news-meta">
-                <span className="news-category">{item.category}</span>
-                <span className="news-date">{item.date}</span>
+                <span className="news-category">
+                  {item.category}
+                </span>
+
+                <span className="news-date">
+                  {item.date}
+                </span>
               </div>
 
-              <h3 className="news-title">{item.title}</h3>
+              <h3 className="news-title-sm">
+                {item.title}
+              </h3>
 
-              <p className="news-excerpt">{item.excerpt}</p>
+              <p className="news-excerpt">
+                {item.excerpt}
+              </p>
 
-              <a href={item.url} className="news-link">
-                Czytaj więcej →
+              <a
+                href={item.url}
+                className="news-link"
+              >
+                Czytaj więcej
               </a>
             </article>
           ))}
@@ -83,7 +98,10 @@ export default function NewsSection({
 
         {showMoreLink && (
           <div className="news-more">
-            <a href="/blog" className="btn-primary">
+            <a
+              href="/blog"
+              className="btn-primary"
+            >
               Zobacz wszystkie artykuły
             </a>
           </div>

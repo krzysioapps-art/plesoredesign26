@@ -4,11 +4,108 @@
 @import "../styles/base.css";
 @import "../styles/layout.css";
 @import "../styles/header.css";
-@import "../styles/home.css";
 @import "../styles/footer.css";
 
-@import "../styles/dashboard.css";
+@import "../styles/home/index.css";
+
+@import "../styles/home/hero.css";
+@import "../styles/home/logos.css";
+@import "../styles/home/how.css";
+@import "../styles/home/quote.css";
+@import "../styles/home/newsletter.css";
+@import "../styles/home/help.css";
+@import "../styles/home/emergency.css";
+@import "../styles/home/ambassador.css";
+@import "../styles/home/verify.css";
+@import "../styles/home/why.css";
+@import "../styles/home/stats.css";
+@import "../styles/home/gift.css";
+@import "../styles/home/benefits.css";
+@import "../styles/home/guide.css";
+@import "../styles/home/cta.css";
+@import "../styles/home/therapists.css";
 
 @import "../styles/faq.css";
 @import "../styles/news.css";
 @import "../styles/testimonials.css";
+
+.demo {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+
+    background: var(--bg);
+}
+
+.demo-box {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 2rem;
+}
+
+.demo-label {
+    display: inline-block;
+    margin-bottom: 1rem;
+
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    color: var(--accent);
+}
+
+.demo-title {
+    margin: 0 0 1.25rem;
+
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+}
+
+.demo-text {
+    margin: 0 0 1rem;
+
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.75;
+}
+
+.demo .btn-primary {
+    margin-top: 1.5rem;
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+html,
+body {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) var(--bg-soft);
+}
+
+/* Chrome / Edge / Safari */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+  background: var(--bg-soft);
+}
+
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+  background-color: var(--accent);
+  border-radius: 999px;
+  border: 3px solid var(--bg-soft);
+}
+
+html::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:hover {
+  background-color: var(--accent-hover);
+}

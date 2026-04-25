@@ -1,24 +1,11 @@
 "use client";
 
 export default function Testimonials() {
-  const testimonials = [
-    {
-      title: "Dziękuję Ci, ukochane Pleso",
-      text:
-        "Gdy pierwszy raz weszłam na platformę w poszukiwaniu psychoterapeuty, bez problemu się po niej poruszałam.",
-      author: "Klientka Pleso",
-    },
-    {
-      title: "Najbardziej pomocne przy wyborze specjalisty",
-      text:
-        "Najbardziej pomocne przy wyborze psychoterapeuty były wywiady z każdym specjalistą.",
-      author: "Klient Pleso",
-    },
-  ];
-
   return (
-    <section className="news section">
+    <section className="testimonials section">
       <div className="container">
+        
+        {/* INTRO */}
         <div className="testimonials__intro">
           <p className="section-label">Opinie klientów</p>
 
@@ -32,22 +19,48 @@ export default function Testimonials() {
           </p>
         </div>
 
+        {/* GRID */}
         <div className="testimonials__grid">
-          {testimonials.map((item, index) => (
-            <article key={index} className="testimonial-card">
+
+          {/* FEATURED REVIEW */}
+          <article className="testimonial-card">
+            <div>
               <div className="testimonial-stars" aria-hidden="true">
                 ★★★★★
               </div>
 
-              <h3>{item.title}</h3>
+              <h3>Dziękuję Ci, ukochane Pleso</h3>
 
-              <p>{item.text}</p>
+              <p>
+                Gdy pierwszy raz weszłam na platformę w poszukiwaniu psychoterapeuty,
+                bez problemu się po niej poruszałam i od razu znalazłam odpowiednią osobę.
+              </p>
+            </div>
 
-              <span>{item.author}</span>
-            </article>
-          ))}
+            <span>Klientka Pleso</span>
+          </article>
+
+          {/* SECONDARY REVIEW */}
+          <article className="testimonial-card">
+            <div>
+              <div className="testimonial-stars" aria-hidden="true">
+                ★★★★★
+              </div>
+
+              <h3>Najbardziej pomocne przy wyborze specjalisty</h3>
+
+              <p>
+                Najbardziej pomocne przy wyborze psychoterapeuty były wywiady
+                z każdym specjalistą — to bardzo ułatwiło decyzję.
+              </p>
+            </div>
+
+            <span>Klient Pleso</span>
+          </article>
+
         </div>
 
+        {/* TRUST BAR */}
         <div className="testimonial-trust">
           <div>
             <p className="testimonial-trust__label">Trustpilot</p>
@@ -68,6 +81,7 @@ export default function Testimonials() {
             Zobacz wszystkie opinie
           </a>
         </div>
+
       </div>
     </section>
   );

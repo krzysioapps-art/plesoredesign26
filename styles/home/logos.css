@@ -1,0 +1,210 @@
+/* =========================
+   TRUST LOGOS
+========================= */
+
+.logos {
+  background: var(--bg);
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.logos-head {
+  max-width: 760px;
+  margin: 0 auto clamp(1.75rem, 4vw, 2.5rem);
+  text-align: center;
+}
+
+.logos-label {
+  display: inline-block;
+  margin-bottom: 1rem;
+
+  color: var(--accent);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.logos-title {
+  color: var(--text);
+  font-size: var(--fs-h2);
+  line-height: 1;
+  letter-spacing: var(--ls-tight);
+}
+
+/* =========================
+   MARQUEE
+========================= */
+
+.logo-marquee {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 8%,
+    #000 92%,
+    transparent 100%
+  );
+
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 8%,
+    #000 92%,
+    transparent 100%
+  );
+}
+
+.logo-marquee::before,
+.logo-marquee::after {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  width: 72px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.logo-marquee::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg), transparent);
+}
+
+.logo-marquee::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg), transparent);
+}
+
+.logo-track {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: max-content;
+
+  animation: logo-scroll 34s linear infinite;
+  will-change: transform;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .logo-marquee:hover .logo-track {
+    animation-play-state: paused;
+  }
+
+  .logo-item:hover img {
+    filter: grayscale(0);
+    opacity: 1;
+  }
+}
+
+/* =========================
+   ITEM
+========================= */
+
+.logo-item {
+  flex: 0 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 180px;
+  height: 92px;
+  padding: 1.1rem 1.35rem;
+
+  background: var(--bg);
+}
+
+.logo-item img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 42px;
+  object-fit: contain;
+
+  filter: grayscale(1);
+  opacity: 0.72;
+
+  transition:
+    opacity 0.2s ease,
+    filter 0.2s ease;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes logo-scroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1000px) {
+  .logos-head {
+    margin-bottom: 2rem;
+  }
+
+  .logo-track {
+    gap: 0.9rem;
+    animation-duration: 26s;
+  }
+
+  .logo-item {
+    width: 152px;
+    height: 82px;
+    padding: 1rem 1.1rem;
+  }
+
+  .logo-item img {
+    max-height: 34px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 640px) {
+  .logos-head {
+    margin-bottom: 1.25rem;
+  }
+
+  .logos-title {
+    font-size: var(--fs-h3);
+    line-height: 1.04;
+  }
+
+  .logo-track {
+    gap: 0.3rem;
+    animation-duration: 20s;
+  }
+
+  .logo-item {
+    width: 146px;
+    height: 78px;
+    padding: 0.7rem 0.85rem;
+  }
+
+  .logo-item img {
+    max-height: 36px;
+  }
+
+  .logo-marquee::before,
+  .logo-marquee::after {
+    width: 22px;
+  }
+}

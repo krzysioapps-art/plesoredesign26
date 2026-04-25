@@ -28,21 +28,34 @@ export default function FaqAccordion({
         {visibleItems.map((item, index) => {
           const open = openIndex === index;
 
+          const panelId = `faq-panel-${index}`;
+          const buttonId = `faq-button-${index}`;
+
           return (
             <article
               key={item.question}
               className={`faq-item ${open ? "is-open" : ""}`}
             >
               <button
+                id={buttonId}
                 type="button"
                 className="faq-button"
+                aria-expanded={open}
+                aria-controls={panelId}
                 onClick={() => setOpenIndex(open ? null : index)}
               >
                 <span>{item.question}</span>
-                <span className="faq-plus">{open ? "−" : "+"}</span>
+                <span className="faq-plus" aria-hidden="true">
+                  {open ? "−" : "+"}
+                </span>
               </button>
 
-              <div className={`faq-answer-wrap ${open ? "is-open" : ""}`}>
+              <div
+                id={panelId}
+                role="region"
+                aria-labelledby={buttonId}
+                className={`faq-answer-wrap ${open ? "is-open" : ""}`}
+              >
                 <div className="faq-answer">
                   <p>{item.answer}</p>
                 </div>

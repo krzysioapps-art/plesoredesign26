@@ -1,0 +1,134 @@
+/* =========================
+   EMERGENCY
+========================= */
+
+.emergency {
+  background: var(--bg);
+}
+
+/* =========================
+   MAIN BOX
+========================= */
+
+.emergency-box {
+  padding: clamp(1.5rem, 4vw, 2.75rem);
+  border-radius: var(--radius-xl);
+
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(198, 40, 40, 0.08),
+      transparent 60%
+    ),
+    #fff5f5;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.emergency-content {
+  max-width: 780px;
+  margin-bottom: 2rem;
+}
+
+.emergency-label {
+  color: #c62828;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.emergency-text {
+  max-width: 680px;
+  margin-top: 1rem;
+
+  color: #6b3b3b;
+  font-size: var(--fs-lg);
+  line-height: var(--lh-copy);
+}
+
+/* =========================
+   GRID
+========================= */
+
+.emergency-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+/* =========================
+   ITEM
+========================= */
+
+.emergency-item {
+  padding: 1.25rem 1.35rem;
+  border-radius: 18px;
+  background: #fff;
+}
+
+.emergency-name {
+  margin-bottom: 0.5rem;
+
+  color: #7a4a4a;
+  font-size: var(--fs-sm);
+  line-height: 1.5;
+}
+
+/* =========================
+   PHONE
+========================= */
+
+.emergency-phone {
+  display: inline-block;
+
+  color: #c62828;
+  font-size: clamp(1.9rem, 3vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.emergency-phone::before {
+  content: "●";
+  margin-right: 0.4rem;
+
+  color: #e53935;
+  font-size: 0.9rem;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1100px) {
+  .emergency-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+  .emergency-box {
+    padding: 1.25rem;
+    border-radius: var(--radius-lg);
+  }
+
+  .emergency-text {
+    font-size: var(--fs-md);
+  }
+
+  .emergency-item {
+    padding: 1rem;
+    border-radius: 14px;
+  }
+
+  .emergency-phone {
+    font-size: 1.6rem;
+  }
+}

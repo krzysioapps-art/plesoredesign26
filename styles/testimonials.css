@@ -1,49 +1,59 @@
+/* =========================
+   TESTIMONIALS (REDESIGN)
+========================= */
+
 .testimonials {
   width: 100%;
 }
 
+/* intro */
+
 .testimonials__intro {
   max-width: 760px;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
 }
 
-.testimonials__desc,
-.testimonials__muted {
+.testimonials__desc {
   margin-top: 1rem;
   color: var(--muted);
-  line-height: 1.7;
+  line-height: 1.75;
 }
+
+/* GRID → featured layout */
 
 .testimonials__grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.25rem;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 1.5rem;
+  align-items: stretch;
 }
+
+/* =========================
+   MAIN TESTIMONIAL (featured)
+========================= */
 
 .testimonial-card {
-  padding: 2rem;
+  padding: 2.25rem;
   border-radius: var(--radius-xl);
+
   background: var(--bg-soft);
   border: 1px solid var(--border);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  transition: transform 0.2s ease;
 }
 
-.testimonial-card h3 {
-  margin: 1rem 0;
-  font-size: 1.35rem;
-  line-height: 1.2;
-}
+.testimonial-card:first-child {
+  background: linear-gradient(
+    180deg,
+    var(--bg-soft),
+    color-mix(in srgb, var(--bg-soft) 80%, var(--bg) 20%)
+  );
 
-.testimonial-card p {
-  margin: 0;
-  color: var(--muted);
-  line-height: 1.7;
-}
-
-.testimonial-card span {
-  display: block;
-  margin-top: 1.5rem;
-  font-size: 0.95rem;
-  color: var(--text-light);
+  border-color: var(--border-soft);
 }
 
 .testimonial-stars {
@@ -52,10 +62,45 @@
   font-size: 1rem;
 }
 
+.testimonial-card h3 {
+  margin: 1rem 0;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.testimonial-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.testimonial-card span {
+  margin-top: 1.75rem;
+  font-size: 0.95rem;
+  color: var(--text-light);
+}
+
+/* =========================
+   SIDE CARD STACK
+========================= */
+
+.testimonials__grid .testimonial-card + .testimonial-card {
+  background: var(--bg);
+  border: 1px solid var(--border-soft);
+}
+
+/* =========================
+   TRUST STRIP (not box)
+========================= */
+
 .testimonial-trust {
   margin-top: 1.5rem;
-  padding: 2rem;
+
+  padding: 1.5rem 2rem;
   border-radius: var(--radius-xl);
+
   background: var(--bg-accent-soft);
   border: 1px solid var(--border-soft);
 
@@ -66,15 +111,19 @@
 }
 
 .testimonial-trust__label {
-  margin: 0 0 0.5rem;
-  font-size: 0.9rem;
+  margin: 0 0 0.3rem;
+  font-size: 0.85rem;
   color: var(--text-light);
 }
 
 .testimonial-trust h3 {
   margin: 0;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 }
+
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 900px) {
   .testimonials__grid {
@@ -85,11 +134,8 @@
     flex-direction: column;
     align-items: flex-start;
   }
-}
 
-@media (max-width: 640px) {
-  .testimonial-card,
-  .testimonial-trust {
+  .testimonial-card {
     padding: 1.5rem;
   }
 }

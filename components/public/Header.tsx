@@ -10,7 +10,9 @@ const menu = [
     sections: [
       {
         title: "",
-        items: ["Przewodnik po psychoterapii"],
+        items: [
+          { label: "Przewodnik po psychoterapii", href: "/demo" },
+        ],
       },
     ],
   },
@@ -20,11 +22,11 @@ const menu = [
       {
         title: "",
         items: [
-          "Blog",
-          "Testy psychologiczne",
-          "Nurty psychoterapii",
-          "Terapii",
-          "Wiadomości",
+          { label: "Blog", href: "/demo" },
+          { label: "Testy psychologiczne", href: "/demo" },
+          { label: "Nurty psychoterapii", href: "/demo" },
+          { label: "Terapii", href: "/demo" },
+          { label: "Wiadomości", href: "/demo" },
         ],
       },
     ],
@@ -48,12 +50,22 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+  }, [mobileOpen]);
+
+  useEffect(() => {
+    if (mobileOpen) setActive(null);
+  }, [mobileOpen]);
+
+  const closeMobile = () => setMobileOpen(false);
+
   return (
     <>
       <header
         className={`site-header
     ${scrolled ? "site-header-small" : ""}
-    ${active ? "site-header-open" : ""}
+    ${active || mobileOpen ? "site-header-open" : ""}
   `}
         onMouseLeave={() => setActive(null)}
       >
@@ -88,19 +100,19 @@ export default function Header() {
               className="header-static"
               onMouseEnter={() => setActive(null)}
             >
-              <Link href="#" className="nav-link">
+              <Link href="/demo" className="nav-link">
                 Karty podarunkowe
               </Link>
 
-              <Link href="#" className="nav-link">
+              <Link href="/demo" className="nav-link">
                 O nas
               </Link>
 
-              <Link href="#" className="nav-link">
+              <Link href="/demo" className="nav-link">
                 Dla biznesu
               </Link>
 
-              <Link href="#" className="nav-link">
+              <Link href="/demo" className="nav-link">
                 Dla psychoterapeutów
               </Link>
 
@@ -119,11 +131,13 @@ export default function Header() {
             </div>
 
             <button
-              className="menu-toggle"
-              onClick={() => setMobileOpen(true)}
-              aria-label="Menu"
+              className={`menu-toggle ${mobileOpen ? "is-open" : ""}`}
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label={mobileOpen ? "Zamknij menu" : "Otwórz menu"}
             >
-              ☰
+              <span></span>
+              <span></span>
+              <span></span>
             </button>
           </div>
         </div>
@@ -144,10 +158,10 @@ export default function Header() {
                     )}
 
                     <div className="mega-links">
-                      {section.items.map((item) => (
-                        <a href="#" key={item}>
-                          {item}
-                        </a>
+                      {section.items.map((link) => (
+                        <Link href={link.href} key={link.label}>
+                          {link.label}
+                        </Link>
                       ))}
                     </div>
                   </div>
@@ -166,11 +180,7 @@ export default function Header() {
           />
 
           <aside className="mobile-drawer">
-            <div className="mobile-top">
-              <strong>Menu</strong>
-
-              <button onClick={() => setMobileOpen(false)}>✕</button>
-            </div>
+                <div className="container">
 
             <div className="mobile-menu">
               {menu.map((item) => (
@@ -197,17 +207,25 @@ export default function Header() {
                   >
                     {item.sections.map((section) =>
                       section.items.map((link) => (
-                        <a href="#" key={link}>
-                          {link}
-                        </a>
+                        <Link
+                          href={link.href}
+                          key={link.label}
+                          onClick={closeMobile}
+                        >
+                          {link.label}
+                        </Link>
                       ))
                     )}
                   </div>
                 </div>
               ))}
 
-              <a href="#">Karty podarunkowe</a>
-              <a href="#">O nas</a>
+              <Link href="/demo" onClick={closeMobile}>
+                Karty podarunkowe
+              </Link>
+              <Link href="/demo" onClick={closeMobile}>
+                O nas
+              </Link>
 
               <button
                 className="mobile-parent"
@@ -218,9 +236,10 @@ export default function Header() {
                 Język: {lang}
               </button>
 
-              <Link href="/dashboard" className="header-login">
+              <Link href="/dashboard" className="header-login" onClick={closeMobile}>
                 Zaloguj się
               </Link>
+            </div>
             </div>
           </aside>
         </>

@@ -8,8 +8,13 @@ const geist = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Cute Clear",
-  description: "Minimal premium experience",
+  title: "Psycholog i psychoterapeuta online | psychoterapia w pleso",
+  description:
+    "Psycholog online – wsparcie, gdziekolwiek jesteś. Psychoterapia dopasowana do Twoich potrzeb. Znajdź psychoterapeutę na pleso.me.",
+
+  icons: {
+    icon: "/plesologo.svg",
+  },
 };
 
 export default function RootLayout({

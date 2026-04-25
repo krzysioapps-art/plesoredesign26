@@ -1,0 +1,256 @@
+/* =========================
+   THERAPISTS
+========================= */
+
+.therapists {
+  background: var(--bg);
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.therapists-head {
+  max-width: 760px;
+  margin: 0 auto clamp(2rem, 4vw, 3rem);
+  text-align: center;
+}
+
+/* =========================
+   GRID
+========================= */
+
+.therapists-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.therapist-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  padding: 1.5rem;
+
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-xl);
+  background: var(--bg);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+/* =========================
+   IMAGE
+========================= */
+
+.therapist-image-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.therapist-image {
+  width: 160px;
+  height: 160px;
+
+  border: 4px solid var(--bg);
+  border-radius: 50%;
+  background: var(--bg-soft);
+
+  object-fit: cover;
+  object-position: center top;
+
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* =========================
+   BODY
+========================= */
+
+.therapist-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  text-align: center;
+}
+
+.therapist-role {
+  margin-bottom: 0.75rem;
+
+  color: var(--accent);
+  font-size: 0.76rem;
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.therapist-name {
+  margin-bottom: 0.75rem;
+
+  font-size: clamp(1.45rem, 3vw, 1.8rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.therapist-text {
+  color: var(--muted);
+  font-size: var(--fs-md);
+  line-height: 1.72;
+}
+
+.therapist-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+
+  margin-top: auto;
+  padding-top: 1.25rem;
+
+  color: var(--text);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+}
+
+.therapist-link::after {
+  content: "→";
+}
+
+/* =========================
+   CTA
+========================= */
+
+.therapists-cta {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1.5rem;
+
+  margin-top: 1.75rem;
+  padding: clamp(1.35rem, 3vw, 1.75rem);
+
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-xl);
+
+  background:
+    radial-gradient(
+      circle at left center,
+      color-mix(in srgb, var(--accent) 10%, transparent),
+      transparent 34%
+    ),
+    var(--bg-soft);
+}
+
+/* =========================
+   AVATARS
+========================= */
+
+.therapists-avatars {
+  display: flex;
+  align-items: center;
+}
+
+.therapists-avatars img {
+  width: 52px;
+  height: 52px;
+
+  margin-left: -8px;
+
+  border: 3px solid var(--bg);
+  border-radius: 50%;
+
+  object-fit: cover;
+}
+
+.therapists-avatars img:first-child {
+  margin-left: 0;
+}
+
+/* =========================
+   CTA COPY
+========================= */
+
+.therapists-cta-copy h3 {
+  margin-bottom: 0.35rem;
+
+  font-size: clamp(1.35rem, 3vw, 1.6rem);
+  line-height: 1.15;
+}
+
+.therapists-cta-copy p {
+  color: var(--muted);
+  font-size: var(--fs-md);
+  line-height: 1.7;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1000px) {
+  .therapists-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .therapists-cta {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    text-align: center;
+  }
+
+  .therapists-avatars {
+    justify-content: center;
+  }
+
+  .therapists-cta .btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 640px) {
+  .therapist-card {
+    padding: 1.25rem;
+    border-radius: var(--radius-lg);
+  }
+
+  .therapist-image {
+    width: 132px;
+    height: 132px;
+  }
+
+  .therapist-name {
+    font-size: 1.4rem;
+  }
+
+  .therapist-role {
+    font-size: 0.72rem;
+  }
+
+  .therapist-text {
+    font-size: var(--fs-sm);
+  }
+
+  .therapists-avatars img {
+    width: 46px;
+    height: 46px;
+  }
+
+  .therapists-cta {
+    padding: 1.25rem;
+    border-radius: var(--radius-lg);
+  }
+}
